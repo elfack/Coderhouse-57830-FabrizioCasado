@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pádel Shop</title>
 </head>
 <body>
     <header>
-        {% block header %}
-        {% endblock header %}  
-    </header>  
-
-    <main> 
+        <h1 style="color: blue; text-align: center;">
+            {% block header %}
+            {% endblock header %}
+        </h1>
+    </header>
+    <nav>
+        {% include 'componentes/navbar.html' %}
+    </nav>
+    <main style="text-align: center;">
         {% block main %}
         {% endblock main %}
     </main>
-
     <footer>
-        {% block footer %}
-        {% endblock footer %}
+        {% include 'componentes/footer.html' %}
     </footer>
 </body>
 </html>

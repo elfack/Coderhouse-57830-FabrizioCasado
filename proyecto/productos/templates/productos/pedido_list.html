@@ -1,0 +1,16 @@
+{% extends 'productos/base.html' %}
+
+{% block header %}
+Pedidos
+{% endblock header %}
+
+{% block main %}
+    <button>
+        <a href="{% url 'pedido_create' %}">Crear nuevo pedido</a>
+    </button>
+    {% for object in object_list %}
+        <p>{{ object | upper}} - {{object.fecha_entrega}} - {{object.estado}}</p>
+    {% empty %}
+        <p>No hay registros.</p>
+    {% endfor %}
+{% endblock main %}
