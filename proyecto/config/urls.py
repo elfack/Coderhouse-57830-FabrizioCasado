@@ -14,17 +14,34 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# from django.contrib import admin
+# from django.urls import path
+# from productos import views
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', views.index, name="index"),
+#     path("cliente/list/", views.cliente_list, name="cliente_list"),
+#     path("pedido/list/", views.pedido_list, name="pedido_list"),
+#     path("producto/list/", views.producto_list, name= "producto_list"),
+#     path("cliente/create/", views.cliente_create, name="cliente_create"),
+#     path("pedido/create/", views.pedido_create, name="pedido_create"),
+#     path("producto/create/", views.producto_create, name="producto_create"),
+# ]
+
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
-from productos import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name="index"),
-    path("cliente/list/", views.cliente_list, name="cliente_list"),
-    path("pedido/list/", views.pedido_list, name="pedido_list"),
-    path("producto/list/", views.producto_list, name= "producto_list"),
-    path("cliente/create/", views.cliente_create, name="cliente_create"),
-    path("pedido/create/", views.pedido_create, name="pedido_create"),
-    path("producto/create/", views.producto_create, name="producto_create"),
+    path('', include('core.urls')),
+    path('clientes/', include('clientes.urls')),
+    path('productos/', include('productos.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
