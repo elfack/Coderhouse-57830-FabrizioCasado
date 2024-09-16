@@ -15,7 +15,7 @@ class PedidoForm(forms.ModelForm):
     cliente = forms.ModelChoiceField(
         queryset=Cliente.objects.all(), empty_label="Seleccione un cliente",
     )
-    servicio = forms.ModelChoiceField(
+    producto = forms.ModelChoiceField(
         queryset=Producto.objects.filter(disponible=True),
         empty_label="Seleccione un producto",
         )

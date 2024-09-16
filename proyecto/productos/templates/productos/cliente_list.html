@@ -9,7 +9,7 @@ Clientes registrados
         <a href="{% url 'cliente_create' %}">Registrar nuevo cliente</a>
     </button>
     {% for object in object_list %}
-        <p>{{ object.apellido | upper }}, {{object.nombre}} - {{object.celular}}</p>
+        <p>{{ object.apellido | upper }}, {{object.nombre}}</p>
     {% empty %}
         <p>No hay registros.</p>
     {% endfor %}

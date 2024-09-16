@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Clientes: Formulario de Países
+{% endblock header %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+    {% include 'clientes/partials/volver_pais.html' %}
+{% endblock main %}

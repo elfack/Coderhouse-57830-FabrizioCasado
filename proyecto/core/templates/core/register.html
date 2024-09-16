@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Registro de Usuario
+{% endblock header %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Registrarse</button>
+    </form>
+{% endblock main %}

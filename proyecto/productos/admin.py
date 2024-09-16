@@ -23,8 +23,8 @@ class ProductoAdmin(admin.ModelAdmin):
     
 @admin.register(Pedido)
 class PedidoAdmin(admin.ModelAdmin):
-    list_display = ("cliente", "servicio", "estado", "fecha_solicitud", "fecha_entrega")
+    list_display = ("cliente", "producto", "estado", "fecha_solicitud", "fecha_entrega")
     list_filter = ("estado", "fecha_solicitud")
-    search_fields = ("cliente__nombre", "servicio__nombre")
+    search_fields = ("cliente__nombre", "producto__nombre")
     ordering = ("fecha_entrega",)
     date_hierarchy = "fecha_solicitud"

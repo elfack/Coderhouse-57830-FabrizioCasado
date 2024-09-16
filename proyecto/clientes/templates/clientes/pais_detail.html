@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Clientes: Vista en Detalle de Países
+{% endblock header %}
+
+{% block main %}
+    <ul>
+        <li>Nombre: {{ object.nombre }}</li>
+    </ul>
+    {% include 'clientes/partials/volver_pais.html' %}
+{% endblock main %}

@@ -27,13 +27,13 @@ class Pedido(models.Model):
         ENTREGADO = 'Entregado', 'Entregado'
         CANCELADO = 'Cancelado', 'Cancelado'
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    servicio = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     descripcion = models.TextField(blank=True, null=True)
     fecha_solicitud = models.DateTimeField(auto_now_add=True)
     fecha_entrega = models.DateTimeField(blank=True, null=True)
     estado = models.CharField(max_length=20, choices=Estado.choices, default=Estado.PENDIENTE)
     
     def __str__(self) -> str:
-        return f"Pedido de {self.servicio.nombre} para {self.cliente.apellido}, {self.cliente.nombre}"
+        return f"Pedido de {self.producto.nombre} para {self.cliente.apellido}, {self.cliente.nombre}"
     
     
