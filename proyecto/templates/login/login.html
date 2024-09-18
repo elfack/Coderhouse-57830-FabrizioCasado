@@ -1,7 +1,9 @@
-{% extends 'core/base.html' %}
+{% extends 'templates/core/base.html' %}
+
+{% load static %}   
 
 {% block header %}
-    Login
+Login
 {% endblock header %}
 
 {% block main %}
@@ -23,3 +25,5 @@
         ¿No tienes una cuenta? <a href="{% url 'core:register' %}" class="text-decoration-none">Regístrate aquí</a>
     </p>
 {% endblock main %}
+
+{% include 'componentes/footer.html' %}

@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    {% if form.instance.pk %}
+        Productos: Actualizando Categoría de Productos
+    {% else %}
+        Productos: Creando Categoría de Productos
+    {% endif %}
+{% endblock header %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+    {% include 'productos/partials/volver_productocategoria.html' %}
+{% endblock main %}
