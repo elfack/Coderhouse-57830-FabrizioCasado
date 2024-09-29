@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Vista en Detalle de Pedidos
+{% endblock header %}
+
+{% block main %}
+    <ul>
+        <li>
+            <strong>Nombre:</strong> {{ object.producto }}
+        </li>
+        <li>
+            <strong>Descripción:</strong> {{ object.descripcion }}
+        </li>
+        <li>
+            <strong>Precio:</strong> {{ object.precio }}
+        </li>
+    </ul>
+    {% include 'productos/partials/volver_pedido.html' %}
+{% endblock main %}

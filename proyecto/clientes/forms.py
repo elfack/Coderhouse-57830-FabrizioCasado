@@ -29,4 +29,3 @@ class ClienteForm(forms.ModelForm):
         model = Cliente
         fields = '__all__'
         widgets = {'nacimiento': forms.DateInput(attrs={'type': 'date'})}
-        

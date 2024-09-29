@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block header %}
+    Todos los productos
+{% endblock header %}
+
+{% block main %}
+<section id="productos" class="py-5" id="features">
+    <div class="container px-5 my-3">
+        <div class="row gx-5 row-cols-1 row-cols-md-3">
+            {% include 'core/componentes/card.html' with titulo="Bullpadel Vertex 04" texto="Esto sirve para tu negocio" imagen_url="media/vertex04.jpg" url="productos/comprar"%}
+            {% include 'core/componentes/card.html' with titulo="Varlion Summum Prisma" texto="Esto sirve para tu negocio" imagen_url="media/summumprima.jpg" %}
+            {% include 'core/componentes/card.html' with titulo="Bullpadel Neuron 24" texto="Esto sirve para tu negocio" imagen_url="media/neuron24.jpg" %}
+            {% include 'core/componentes/card.html' with titulo="Bullpadel BP10" texto="Esto sirve para tu negocio" imagen_url="media/bp10.jpg" %}
+            {% include 'core/componentes/card.html' with titulo="Adidas Zukur CTRL" texto="Esto sirve para tu negocio" imagen_url="media/adidaszukur.jpg" %}
+            {% include 'core/componentes/card.html' with titulo="Bullpadel Hack 04" texto="Esto sirve para tu negocio" imagen_url="media/hack04.jpg" %}
+        </div>
+    </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8">
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main %}

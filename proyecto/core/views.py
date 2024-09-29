@@ -1,7 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import render
@@ -13,6 +9,9 @@ from .forms import CustomUserCreationForm, UserProfileForm
 
 def index(request):
     return render(request, 'core/index.html')
+
+def aboutme(request):
+    return render(request, 'core/aboutme.html')
 
 
 class Register(CreateView):

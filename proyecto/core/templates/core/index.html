@@ -1,0 +1,83 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block header %}
+{% endblock header %}
+
+{% block main %}
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container">
+            <div class="row gx-5 align-items-center justify-content-center">
+                <div class="col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="my-5 text-center text-xl-start">
+                        
+                        <h1 class="display-5 fw-bolder text-white mb-2">Encontra las mejores paletas en Pádel Shop</h1>
+                        <h1 class="display-5 fw-bolder text-white mb-2"></h1>
+                        <p class="lead fw-normal text-white-50 mb-4">
+                            
+                        </p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#productos">Productos</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="#contacto">Contacto</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                    <img class="img-fluid rounded-3 my-5"
+                         src="media/padel1.jpg"
+                         alt="..." />
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Features section-->
+
+    <section id="productos" class="py-5" id="features">
+        <div class="container px-5 my-3">
+            <div class="row gx-5 row-cols-1 row-cols-md-3">
+                {% include 'core/componentes/card.html' with titulo="Bullpadel Vertex 04" texto="Esto sirve para tu negocio" imagen_url="media/vertex04.jpg" url="productos/comprar"%}
+                {% include 'core/componentes/card.html' with titulo="Varlion Summum Prisma" texto="Esto sirve para tu negocio" imagen_url="media/summumprima.jpg" url="productos/comprar"%}
+                {% include 'core/componentes/card.html' with titulo="Bullpadel Neuron 24" texto="Esto sirve para tu negocio" imagen_url="media/neuron24.jpg" url="productos/comprar"%}
+                {% include 'core/componentes/card.html' with titulo="Bullpadel BP10" texto="Esto sirve para tu negocio" imagen_url="media/bp10.jpg" url="productos/comprar"%}
+                {% include 'core/componentes/card.html' with titulo="Adidas Zukur CTRL" texto="Esto sirve para tu negocio" imagen_url="media/adidaszukur.jpg" url="productos/comprar"%}
+                {% include 'core/componentes/card.html' with titulo="Bullpadel Hack 04" texto="Esto sirve para tu negocio" imagen_url="media/hack04.jpg" url="productos/comprar"%}
+            </div>
+        </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-8">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial section-->
+    <!-- Call to action-->
+    <aside id="contacto" class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
+        <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
+            <div class="mb-4 mb-xl-0">
+                <div class="fs-3 fw-bold text-white">¿No encontras lo que estás buscando?</div>
+                <div class="text-white-50">Suscribite a nuestro newsletter para enterarte de los nuevos ingresos antes que nadie.</div>
+            </div>
+            <div class="ms-xl-4">
+                <div class="input-group mb-2">
+                    <input class="form-control"
+                           type="text"
+                           placeholder="Escribe tu email..."
+                           aria-label="Email address..."
+                           aria-describedby="button-newsletter" />
+                    
+                    <a href="#" class="btn btn-outline-light" id="subscribe-button">Enviar</a>
+
+                    <script>
+                        document.getElementById("subscribe-button").onclick = function (event) {
+                            event.preventDefault();  
+                            alert("Gracias por suscribirte al newsletter de Pádel Shop");
+                            window.location.href = "{% url 'core:index' %}"; 
+                        };
+                    </script>
+                    
+                </div>
+            </div>
+        </aside>
+{% endblock main %}

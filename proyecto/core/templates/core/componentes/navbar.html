@@ -1,0 +1,36 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="{% url 'core:index' %}">Pádel Shop: tu tienda de pádel🥎</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:index' %}">🏠Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:aboutme' %}">Sobre mí</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'clientes:cliente_list' %}">Clientes</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'productos:productocategoria_list' %}">Listado de productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'productos:pedido_list' %}">Pedidos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:profile' %}">{{ user.username }}</a></li>
+                    {% if user.vendedor.avatar %}
+                    <img src="{{ user.vendedor.avatar.url }}"
+                         alt="avatar"
+                         style="height: 30px" />
+                    {% else %}
+                    <img src="{% static 'core/img/perfil.png' %}"
+                         alt="avatar"
+                         style="height: 30px" />
+                    {% endif %}
+                <form action="{% url 'core:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

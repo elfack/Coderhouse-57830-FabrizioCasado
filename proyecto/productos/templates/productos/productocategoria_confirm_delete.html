@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Borrar producto
+{% endblock header %}
+
+{% block main %}
+    <p>¿Está seguro que desea borrar el producto "{{ object.nombre }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    {% include 'productos/partials/volver_productocategoria.html' %}
+{% endblock main %}

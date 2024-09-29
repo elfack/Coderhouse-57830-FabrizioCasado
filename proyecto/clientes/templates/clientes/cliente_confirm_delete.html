@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Borrar cliente
+{% endblock header %}
+
+{% block main %}
+    <p>¿Está seguro que desea borrar el cliente "{{ object.apellido}},{{ object.nombre }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    {% include 'clientes/partials/volver_cliente.html' %}
+{% endblock main %}

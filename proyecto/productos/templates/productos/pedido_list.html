@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+Pedidos
+{% endblock header %}
+
+
+
+{% block main %}
+<div class="container my-4">
+    <div class="d-flex justify-content-center">
+        <form method="get" class="d-flex me-3">
+            <input type="text" class="form-control me-2" name="q" placeholder="Buscar...">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+        <a href="{% url 'productos:pedido_create' %}">
+            <button class="btn btn-success">Crear nuevo pedido</button>
+        </a>
+    </div>
+
+    <div class="table-responsive mt-4"></div>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th style="width: 23%;">Producto</th>
+                    <th style="width: 23%;">Cliente</th>
+                    <th style="width: 23%;">Estado</th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 10%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list %}
+                    <tr>
+                        <td>{{ object.producto }}</td>
+                        <td>{{ object.cliente }}</td>
+                        <td>{{ object.estado }}</td>
+                        
+                        <td class="text-center">
+                            <a href="{% url 'productos:pedido_detail' object.id %}" class="btn btn-info btn-sm">Detalle</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'productos:pedido_update' object.id %}" class="btn btn-warning btn-sm">Modificar</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'productos:pedido_delete' object.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center">No hay pedidos registrados.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock main %}
