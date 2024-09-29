@@ -8,14 +8,6 @@ Generar solicitud de pedido
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <a class="" id="subscribe-button">
-            <button type="submit">Enviar</button></a>
-            <script>
-                document.getElementById("subscribe-button").onclick = function (event) {
-                    event.preventDefault();
-                    alert("¡Pedido realizado con éxito! En breve nos estaremos comunicando al telefono ingresado.");
-                    window.location.href = "{% url 'core:index' %}";
-                };
-            </script>
+        <button type="submit">Enviar</button>
     </form>
 {% endblock main %}
