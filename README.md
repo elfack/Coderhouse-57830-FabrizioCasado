@@ -4,6 +4,10 @@
 
 Fabrizio Casado: [Linkedin](https://www.linkedin.com/in/fabrizio-casado/)
 
+### Link a video instructivo
+
+Youtube: https://youtu.be/xaZgZm3cMyA?si=6PUD1oTrjdrP4Hu4
+
 ## Proyecto final con Python
 
 Este proyecto está pensado para venderse a emprendimientos o pequeños comerciantes que trabajen con un stock limitado o por encargue (a pedido). Considero que esta es la manera más útil de vender el proyecto, ya que a medida que el negocio se hace más grande existen opciones mejores y más conocidas (MercadoLibre, TiendaNube, etc.)
