@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m^zo4+)3_n)a+_opv-ng!)*+=lke#nf2qj4b3epgqa419xx38k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fabriziocasado.pythonanywhere.com']
 
 
 # Application definition
@@ -145,3 +145,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  
 
 STATIC_ROOT = BASE_DIR / 'static'
+
+try:
+    #Importa la configuración de desarrollo cuando el archivo esté
+    from settings_dev import *
+except ModuleNotFoundError:
+    pass
